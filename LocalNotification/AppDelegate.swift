@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UNUserNotificationCenter.current().delegate = self
         registerForNotifications()
+        setCategory()
         return true
     }
     
@@ -23,6 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             }
+    }
+    
+    func setCategory() {
+        //1
+        let action = UNNotificationAction(identifier: "JOIN", title: "Join", options: [])
+        
+        //2
+        let category = UNNotificationCategory(identifier: "CATEGORY", actions: [action], intentIdentifiers: [], options: [])
+        
+        //3
+        UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 
 

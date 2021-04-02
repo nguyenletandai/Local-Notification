@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         content.subtitle = "You"
         content.body = "to DaiNLT's tutorial"
         content.badge = 1
+        content.categoryIdentifier = "CATEGORY"
         
         //2
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
