@@ -11,9 +11,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func didPressPushButton(_ sender: Any) {
+        //1
+        let content = UNMutableNotificationContent()
+        content.title = "Welcome"
+        content.subtitle = "You"
+        content.body = "to DaiNLT's tutorial"
+        content.badge = 1
+        
+        //2
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        //3
+        let request = UNNotificationRequest(identifier: "identifier", content: content, trigger: trigger)
+        
+        //4
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
 }
 
